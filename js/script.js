@@ -30,6 +30,7 @@ form.addEventListener('submit', (e) => {
     // CREATE THE DELETE BUTTON
     let deleteBtn = document.createElement('button'), textDelete = document.createTextNode('X')
     deleteBtn.className = 'btn btn-danger btn-sm float-end delete'
+    deleteBtn.setAttribute('id', 'delBtn')
     deleteBtn.appendChild(textDelete)
     cellDelete.appendChild(deleteBtn)
 
@@ -46,7 +47,7 @@ form.addEventListener('submit', (e) => {
 
 // DELETE EMPLOYEE
 empTable.addEventListener('click', (e) => {
-    if (e.target.classList.contains('delete')) {
+    if (e.target.id === 'delBtn') {
         if (confirm('Are you sure you want to delete this employee?')) {
             e.target.closest('tr').remove()
             numOfEmps--
